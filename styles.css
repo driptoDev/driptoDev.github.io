@@ -1,0 +1,85 @@
+@font-face {
+    font-family: Biko;
+    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/biko-black.woff");
+  }
+  body {
+    background: white;
+    margin: 2rem;
+  }
+  .header {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1200px;
+    bottom: 100px;
+    z-index: -1;
+  }
+  .header video {
+    width: 100%;
+  }
+  svg {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; /*  needed for FF, Safari, Edge */
+    height: 100%;
+  }
+  svg text {
+    font-family: Biko, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 38px;
+  }
+  svg rect {
+    fill: white;
+  }
+  svg > rect {
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+  }
+
+  .intro {
+    font-family: Biko;
+    font-size: 80px;
+    padding-bottom: 50px;
+  }
+  .mouse {
+    width: 25px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    display: flex;
+    margin-left: 712px;
+    /*This is used here for aligning the mouse wheel in the middle of the mouse container. We could use align items and justify content center here,
+    but in this situation it's easier to do a margin of auto on the mouse wheel itself and it will do the same thing with one less line of css.*/
+}
+
+.mouse-wheel {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    margin: auto;
+    /*Centers the mouse wheel vertically and horizontally (because of help from display: flex on the mouse).*/
+    animation: move-wheel 1s linear infinite;
+}
+
+/* Here at the start of the animation the mouse wheel will have an opacity of 0 and it will be moved up. At the end the opacity is 1 and it is moved down */
+@keyframes move-wheel {
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(1rem);
+    }
+}
+
+.mouseText {
+    font-family: Biko;
+    font-size: 20px;
+    text-align: center;
+}
